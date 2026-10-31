@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPlay | Entrar na Plataforma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Ajustes visuais específicos da página de auth */
+        .auth-container {
+            display: flex;
+            width: 90%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            margin: 80px auto;
+        }
+        .auth-hero {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(176, 38, 255, 0.15));
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .auth-hero .logo-text {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .auth-hero h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .auth-hero p {
+            color: #ccc;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .auth-form-side {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .auth-form-side h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .auth-form-side p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cyan);
+            z-index: 2;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            background: rgba(5, 2, 16, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+        .input-group input:focus {
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+        }
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social-icon {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition);
+            color: #fff; font-size: 1.2rem;
+        }
+        .social-icon:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .switch-auth {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        .switch-auth a {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu de Navegação -->
+    <header class="main-nav">
+        <a href="index.html" class="logo">NTPlay</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="perfil.html"> Minha Conta</a></li>
+            <li><a href="login.html" class="active nav-cta">Entrar</a></li>
+        </ul>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <!-- Conteúdo de Login -->
+    <div class="container" style="display: flex; align-items: center; justify-content: center; padding-top: 80px; padding-bottom: 80px;">
+        <div class="auth-container">
+            <!-- Lado Esquerdo: Promoção -->
+            <div class="auth-hero">
+                <div class="logo-text">NTPlay</div>
+                <h2>O futuro do entretenimento te espera.</h2>
+                <p>Milhares de histórias, desde thrillers tensos até comédias marcantes. Tudo em alta definição, onde e quando você quiser.</p>
+                <div style="display: flex; gap: 10px; font-size: 3rem; color: var(--cyan);">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+            </div>
+
+            <!-- Lado Direito: Formulário -->
+            <div class="auth-form-side">
+                <h3>Bem-vindo de volta!</h3>
+                <p>Entre na sua conta para continuar assistindo onde parou.</p>
+
+                <form>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="E-mail ou usuário" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Senha" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">
+                        Entrar na Plataforma <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="social-login">
+                    <div class="social-icon"><i class="fab fa-google"></i></div>
+                    <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+                    <div class="social-icon"><i class="fab fa-apple"></i></div>
+                </div>
+
+                <div class="switch-auth">
+                    Ainda não tem uma conta? <a href="#">Cadastre-se gratuitamente</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html" class="logo">NTPlay</a>
+        <p style="margin-top: 15px;">Acesse sua conta em segundos.</p>
+        <p>&copy; 2024 NTPlay - Segurança e Criatividade.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

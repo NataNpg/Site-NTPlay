@@ -1,0 +1,90 @@
+# GitHub Pages Configuration for NataNpg Portfolio
+# This file configures Jekyll for GitHub Pages deployment
+
+# Site settings
+title: NataNpg
+description: Desenvolvedor Full Stack - Portfólio de projetos, habilidades e experiência
+author: NataNpg
+email: contato@natanpg.dev
+url: "https://natanpg.github.io"
+baseurl: ""
+
+# GitHub Pages settings
+remote_theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+  - package.json
+  - package-lock.json
+  - *.sh
+  - .DS_Store
+
+# Include files
+include:
+  - _redirects
+  - .htaccess
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# SEO
+twitter:
+  username: natanpg
+  card: summary_large_image
+
+social:
+  name: NataNpg
+  links:
+    - https://github.com/NataNpg
+    - https://linkedin.com/in/natanpg
+    - https://twitter.com/natanpg
+
+# Google Analytics (optional - add your ID)
+# google_analytics: G-XXXXXXXXXX
+
+# Build settings
+future: false
+unpublished: false
+lsi: false
+highlighter: rouge
+
+# Performance
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: []

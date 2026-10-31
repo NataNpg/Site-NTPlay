@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPlay | Catálogo de Série e Filmes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .catalog-header {
+            text-align: center;
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 15px 25px 15px 50px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--card-bg);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+        .search-box input:focus {
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cyan);
+        }
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: #ccc;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(45deg, var(--cyan), var(--purple));
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            padding-bottom: 80px;
+        }
+        .video-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            border-color: var(--cyan);
+        }
+        .card-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(5, 2, 16, 0.9), transparent);
+            display: flex; flex-direction: column; justify-content: flex-end; height: 100%;
+        }
+        .card-tags {
+            position: absolute; top: 10px; left: 10px;
+            background: var(--purple); color: white;
+            font-size: 0.7rem; padding: 3px 8px; border-radius: 5px; font-weight: bold;
+        }
+        .card-play-icon {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px; height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; color: white;
+            opacity: 0; transition: var(--transition);
+        }
+        .video-card:hover .card-play-icon { opacity: 1; }
+        .card-title { font-weight: bold; font-size: 1rem; margin-bottom: 5px; text-shadow: 0 2px 5px black; }
+        .card-meta { font-size: 0.8rem; color: #ccc; display: flex; gap: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Menu de Navegação -->
+    <header class="main-nav">
+        <a href="index.html" class="logo">NTPlay</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html" class="active">Catálogo</a></li>
+            <li><a href="perfil.html"> Minha Conta</a></li>
+            <li><a href="login.html" class="nav-cta">Entrar</a></li>
+        </ul>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <!-- Header de Catálogo -->
+    <section class="catalog-header container" style="padding-top: 120px;">
+        <h1 style="font-size: 3rem; margin-bottom: 10px;">Descubra o <span class="gradient-text">Catálogo</span></h1>
+        <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px;">Milhares de títulos exclusivos, séries novas todo dia e movies para todo o seu estilo.</p>
+
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Busque por séries, movies, gêneros...">
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">Séries</button>
+            <button class="filter-btn">Movies</button>
+            <button class="filter-btn">NTPlay Originais</button>
+            <button class="filter-btn">Documentários</button>
+        </div>
+    </section>
+
+    <!-- Grid de Vídeos -->
+    <section class="video-grid container" style="padding: 0;">
+        <!-- Card 1 -->
+        <div class="video-card" style="background-image: linear-gradient(45deg, rgba(0,229,255,0.3), rgba(176,38,255,0.3)), url('https://images.unsplash.com/photo-1536430827677-bd7591f34f4d?auto=format&fit=crop&w=500&q=60');">
+            <span class="card-tags">Exclusivo</span>
+            <div class="card-play-icon"><i class="fas fa-play"></i></div>
+            <div class="card-overlay">
+                <div class="card-title">Galáxia Distante S03</div>
+                <div class="card-meta"><span>2024</span><span>16+</span><span>4 episódios</span></div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="video-card" style="background-image: linear-gradient(45deg, rgba(0,229,255,0.3), rgba(176,38,255,0.3)), url('https://images.unsplash.com/photo-1446776753086-dacc82f1ca07?auto=format&fit=crop&w=500&q=60');">
+            <span class="card-tags">Mais Popular</span>
+            <div class="card-play-icon"><i class="fas fa-play"></i></div>
+            <div class="card-overlay">
+                <div class="card-title">O Último Guardião</div>
+                <div class="card-meta"><span>Ação</span><span>2023</span><span>2h 10m</span></div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="video-card" style="background-image: linear-gradient(45deg, rgba(0,229,255,0.3), rgba(176,38,255,0.3)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=60');">
+            <span class="card-tags">Novo</span>
+            <div class="card-play-icon"><i class="fas fa-play"></i></div>
+            <div class="card-overlay">
+                <div class="card-title">Sintonia Mental</div>
+                <div class="card-meta"><span>Ficção Científica</span><span>2024</span><span>Temporada 1</span></div>
+            </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="video-card" style="background-image: linear-gradient(45deg, rgba(0,229,255,0.3), rgba(176,38,255,0.3)), url('https://images.unsplash.com/photo-1517604930933-033693b4dc5b?auto=format&fit=crop&w=500&q=60');">
+            <div class="card-play-icon"><i class="fas fa-play"></i></div>
+            <div class="card-overlay">
+                <div class="card-title">Histórias da Cidade</div>
+                <div class="card-meta"><span>Drama</span><span>2022</span><span>12 episódios</span></div>
+            </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="video-card" style="background-image: linear-gradient(45deg, rgba(0,229,255,0.3), rgba(176,38,255,0.3)), url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&q=60');">
+            <span class="card-tags">Documentário</span>
+            <div class="card-play-icon"><i class="fas fa-play"></i></div>
+            <div class="card-overlay">
+                <div class="card-title">Vida Selvagem Global</div>
+                <div class="card-meta"><span>Natureza</span><span>2024</span><span>8h 20m</span></div>
+            </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="video-card" style="background-image: linear-gradient(45deg, rgba(0,229,255,0.3), rgba(176,38,255,0.3)), url('https://images.unsplash.com/photo-1508700115892-45ecd05ae711?auto=format&fit=crop&w=500&q=60');">
+            <div class="card-play-icon"><i class="fas fa-play"></i></div>
+            <div class="card-overlay">
+                <div class="card-title">Mistério no Deserto</div>
+                <div class="card-meta"><span>Suspense</span><span>2023</span><span>1h 45m</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html" class="logo">NTPlay</a>
+        <p style="margin-top: 15px;">Explore o melhor do entretenimento.</p>
+        <p>&copy; 2024 NTPlay - Catálogo de Experiência.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

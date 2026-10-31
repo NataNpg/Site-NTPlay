@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NataNpg - Contato. Vamos conversar sobre seu projeto? Estou disponível para freelance, consultoria e oportunidades full-time.">
+    <title>Contato | NataNpg</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-nav">
+        <a href="index.html" class="logo">NataNpg</a>
+        <nav class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="projects.html">Projetos</a>
+            <a href="about.html">Sobre</a>
+            <a href="contact.html" class="active nav-cta">Contato</a>
+        </nav>
+        <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="page-badge">Vamos Conversar</span>
+                <h1>Entre em <span class="gradient-text">Contato</span></h1>
+                <p>Tem um projeto em mente? Quer trocar ideias sobre tecnologia? Estou a uma mensagem de distância.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h2>Me envie uma mensagem</h2>
+                        <p>Respondo geralmente em até 24 horas úteis.</p>
+                    </div>
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto <span class="required">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecione um assunto</option>
+                                <option value="freelance">Projeto Freelance</option>
+                                <option value="fulltime">Oportunidade Full-time</option>
+                                <option value="consulting">Consultoria Técnica</option>
+                                <option value="collaboration">Colaboração Open Source</option>
+                                <option value="mentoring">Mentoria / Code Review</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Orçamento Estimado (opcional)</label>
+                            <select id="budget" name="budget">
+                                <option value="">Não informar</option>
+                                <option value="under-5k">Até R$ 5.000</option>
+                                <option value="5k-15k">R$ 5.000 - R$ 15.000</option>
+                                <option value="15k-30k">R$ 15.000 - R$ 30.000</option>
+                                <option value="30k-50k">R$ 30.000 - R$ 50.000</option>
+                                <option value="over-50k">Acima de R$ 50.000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Conte sobre seu projeto, objetivos, timeline, tecnologias preferidas..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-large btn-full" id="submit-btn">
+                            <span class="btn-text"><i class="fas fa-paper-plane"></i> Enviar Mensagem</span>
+                            <span class="btn-loading" style="display: none;"><i class="fas fa-spinner fa-spin"></i> Enviando...</span>
+                        </button>
+                        <p class="form-note">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>. Seus dados não serão compartilhados.</p>
+                    </form>
+                    <div id="form-success" class="form-success" style="display: none;">
+                        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                        <h3>Mensagem enviada!</h3>
+                        <p>Obrigado por entrar em contato. Retornarei o mais breve possível.</p>
+                        <button class="btn-secondary" onclick="resetForm()">Enviar outra mensagem</button>
+                    </div>
+                    <div id="form-error" class="form-error" style="display: none;">
+                        <div class="error-icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <h3>Ops, algo deu errado</h3>
+                        <p>Não foi possível enviar a mensagem. Tente novamente ou me envie um email direto.</p>
+                        <button class="btn-secondary" onclick="resetForm()">Tentar novamente</button>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <div class="info-card">
+                        <h3><i class="fas fa-envelope"></i> Email Direto</h3>
+                        <p>Prefere email? Me escreva diretamente:</p>
+                        <a href="mailto:contato@natanpg.dev" class="contact-link">contato@natanpg.dev</a>
+                        <p class="info-note">Respondo em até 24h úteis</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fab fa-github"></i> GitHub</h3>
+                        <p>Veja meu código, contribua com projetos ou abra issues:</p>
+                        <a href="https://github.com/NataNpg" target="_blank" class="contact-link">github.com/NataNpg</a>
+                        <p class="info-note">50+ repositórios públicos</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fab fa-linkedin"></i> LinkedIn</h3>
+                        <p>Conecte-se profissionalmente:</p>
+                        <a href="https://linkedin.com/in/natanpg" target="_blank" class="contact-link">linkedin.com/in/natanpg</a>
+                        <p class="info-note">Rede profissional ativa</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> Disponibilidade</h3>
+                        <p>Horários de resposta (BRT):</p>
+                        <div class="availability">
+                            <div class="avail-item">
+                                <span class="avail-day">Seg - Sex</span>
+                                <span class="avail-time">9h - 18h</span>
+                            </div>
+                            <div class="avail-item">
+                                <span class="avail-day">Sábado</span>
+                                <span class="avail-time">10h - 14h</span>
+                            </div>
+                            <div class="avail-item">
+                                <span class="avail-day">Domingo</span>
+                                <span class="avail-time">Fechado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Services Offered -->
+                    <div class="services-offered">
+                        <h3><i class="fas fa-briefcase"></i> Serviços que Ofereço</h3>
+                        <ul class="services-list">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div>
+                                    <strong>Desenvolvimento Full Stack</strong>
+                                    <span>React, Node.js, TypeScript, Python, databases, cloud</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div>
+                                    <strong>Arquitetura & Code Review</strong>
+                                    <span>System design, performance, security, best practices</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div>
+                                    <strong>Consultoria Técnica</strong>
+                                    <span>Escolha de stack, migrações, scaling, troubleshooting</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div>
+                                    <strong>Mentoria para Devs</strong>
+                                    <span>Carreira, code review, entrevista prep, best practices</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div>
+                                    <strong>Open Source Contribution</strong>
+                                    <span>Bug fixes, features, docs, maintenance</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Perguntas Frequentes</h2>
+                <p>Respostas rápidas para dúvidas comuns</p>
+            </div>
+            <div class="faq-grid">
+                <details class="faq-item">
+                    <summary>Como funciona o processo de freelance?</summary>
+                    <p>1) Conversa inicial (gratuita) para entender o escopo → 2) Proposta com timeline e custo → 3) Contrato e kickoff → 4) Entregas semanais com demos → 5) Deploy e documentação → 6) Suporte pós-lançamento (30 dias).</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Quais suas tecnologias preferidas?</summary>
+                    <p>Tenho domínio avançado em TypeScript, React, Node.js, PostgreSQL, Docker, AWS. Mas escolho a stack baseada no problema: às vezes Go, Rust, Python, ou até PHP fazem mais sentido. O foco é resolver bem, não usar hype.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Trabalha remoto / presencial?</summary>
+                    <p>100% remoto (Brasil - BRT). Tenho setup completo home office. Disponível para calls em horário comercial. Para projetos longos, posso fazer encontros presenciais pontuais em SP/Capital.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Qual sua disponibilidade atual?</summary>
+                    <p>Atualmente aceitando projetos para início em <strong>Janeiro 2025</strong>. Para urgências, me avise no assunto do email. Agenda costuma fechar com 4-6 semanas de antecedência.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Como é o pagamento?</summary>
+                    <p>Projetos fixos: 30% início, 40% meio, 30% entrega. Mensalidades/Retainers: pagamento mensal antecipado. Aceito PIX, transferência, PayPal (internacional). Nota fiscal emitida (PJ).</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Faz manutenção de projetos existentes?</summary>
+                    <p>Sim! Auditoria de código, refatoração, migração de stack, correção de bugs críticos, implementação de testes, setup de CI/CD, melhoria de performance. Cobrado por hora ou pacote.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para começar?</h2>
+                <p>Me conte sobre seu projeto e vamos tirar a ideia do papel.</p>
+                <a href="#contact-form" class="btn-primary btn-large" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-rocket"></i> Iniciar Projeto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">NataNpg</a>
+                    <p>Desenvolvedor Full Stack apaixonado por criar soluções elegantes.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/NataNpg" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/natanpg" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:contato@natanpg.dev" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://twitter.com/natanpg" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="index.html">Início</a></li>
+                            <li><a href="projects.html">Projetos</a></li>
+                            <li><a href="about.html">Sobre</a></li>
+                            <li><a href="contact.html">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Projetos</h4>
+                        <ul>
+                            <li><a href="https://github.com/NataNpg" target="_blank">GitHub</a></li>
+                            <li><a href="projects.html#opensource">Open Source</a></li>
+                            <li><a href="projects.html#freelance">Freelance</a></li>
+                            <li><a href="projects.html#personal">Pessoais</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="mailto:contato@natanpg.dev">contato@natanpg.dev</a></li>
+                            <li><a href="https://github.com/NataNpg" target="_blank">github.com/NataNpg</a></li>
+                            <li>Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NataNpg. Construído com <i class="fas fa-heart" style="color: var(--cyan);"></i> e hospedado no GitHub Pages.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
